@@ -177,12 +177,12 @@ SecurityIncident
 **Threat:** SOC prioritization
 <img width="1915" height="906" alt="image" src="https://github.com/user-attachments/assets/5a58e7f8-713c-4091-912e-c17f6da1a638" />
 
-**Severity Level:🔴 HIGH**
-**Total High Severity Incidents: 5**
-**Time Range: Last 24 hours**
-**Platform: Microsoft Sentinel**
-**Observation: All detected incidents fall under HIGH severity**
-**Verdict: 🔴 TRUE POSITIVE**
+- **Severity Level:🔴 HIGH**
+- **Total High Severity Incidents: 5**
+- **Time Range: Last 24 hours**
+- **Platform: Microsoft Sentinel**
+- **Observation: All detected incidents fall under HIGH severity**
+- **Verdict: 🔴 TRUE POSITIVE**
 ---
 
 ## 🛠️ Tools Used
