@@ -1,0 +1,14 @@
+// ============================================
+// Title: User Added to Admin Group
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: T1078.002 - Privilege Escalation
+// Log Source: SecurityEvent (EventID 4732)
+// Description: Detects when a user is added to admin group
+//              to identify privilege escalation attempts
+// ============================================
+
+SecurityEvent
+| where EventID == 4732
+| project TimeGenerated, Account, Computer, SubjectUserName
+| order by TimeGenerated desc
