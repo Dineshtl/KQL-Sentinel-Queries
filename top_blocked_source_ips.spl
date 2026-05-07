@@ -1,0 +1,14 @@
+| ============================================
+| Title: Top Blocked Source IPs
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1595 - Active Scanning
+| Log Source: fortigate_traffic
+| Description: Identifies the most aggressive attacking IPs
+|              blocked by the firewall during active campaigns
+| ============================================
+
+index=main sourcetype=fortigate_traffic action=blocked
+| stats count by src_ip
+| sort -count
+| head 10
