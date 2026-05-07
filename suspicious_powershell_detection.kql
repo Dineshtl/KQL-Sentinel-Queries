@@ -1,0 +1,15 @@
+// ============================================
+// Title: Suspicious PowerShell Detection
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: T1059.001 - PowerShell
+// Log Source: SecurityEvent (EventID 4688)
+// Description: Detects suspicious PowerShell execution
+//              used in malware and Living off the Land attacks
+// ============================================
+
+SecurityEvent
+| where EventID == 4688
+| where CommandLine has "powershell"
+| project TimeGenerated, Account, Computer, CommandLine
+| order by TimeGenerated desc
