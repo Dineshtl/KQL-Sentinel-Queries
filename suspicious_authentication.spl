@@ -1,0 +1,14 @@
+| ============================================
+| Title: Suspicious Authentication Activity
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1078 - Valid Accounts
+| Log Source: fortigate_traffic
+| Description: Detects suspicious authentication patterns
+|              indicating credential attacks or insider threat
+| ============================================
+
+index=main sourcetype=fortigate_traffic protocol_version=ipv4
+| stats count as attempts by src_ip
+| where attempts > 10
+| sort -attempts
