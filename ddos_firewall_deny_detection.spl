@@ -1,0 +1,14 @@
+| ============================================
+| Title: High Firewall Deny Connections - DDoS Detection
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1498 - Network Denial of Service
+| Log Source: fortigate_traffic
+| Description: Detects IPs with excessive denied connections
+|              indicating DDoS attack or brute force activity
+| ============================================
+
+index=main sourcetype=fortigate_traffic action=blocked
+| stats count as denied by src_ip
+| where denied > 100
+| sort -denied
