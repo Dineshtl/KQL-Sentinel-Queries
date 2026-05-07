@@ -1,0 +1,13 @@
+| ============================================
+| Title: Failed VPN Logins Detection
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1110 - Brute Force / Credential Stuffing
+| Log Source: fortigate_traffic
+| Description: Detects failed VPN login attempts to identify
+|              brute force and credential stuffing attacks
+| ============================================
+
+index=main sourcetype=fortigate_traffic action=failure
+| stats count by user, src_ip
+| sort -count
