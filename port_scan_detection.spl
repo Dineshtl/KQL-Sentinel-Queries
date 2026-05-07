@@ -1,0 +1,14 @@
+| ============================================
+| Title: Port Scan Detection
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1046 - Network Service Scanning
+| Log Source: fortigate_traffic
+| Description: Detects IPs scanning more than 20 unique
+|              ports indicating reconnaissance activity
+| ============================================
+
+index=main sourcetype=fortigate_traffic
+| stats dc(dest_port) as unique_ports by src_ip
+| where unique_ports > 20
+| sort -unique_ports
