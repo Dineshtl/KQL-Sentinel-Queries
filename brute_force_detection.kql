@@ -1,0 +1,14 @@
+// ============================================
+// Title: Brute Force Detection
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: T1110 - Brute Force
+// Log Source: SecurityEvent
+// Description: Detects IPs with 5+ failed logins per hour
+// ============================================
+
+SecurityEvent
+| where EventID == 4625
+| summarize FailedCount = count() by IpAddress, bin(TimeGenerated, 1h)
+| where FailedCount > 5
+| order by FailedCount desc
