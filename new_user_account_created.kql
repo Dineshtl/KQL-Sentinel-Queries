@@ -1,0 +1,14 @@
+// ============================================
+// Title: New User Account Created
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: T1136 - Create Account
+// Log Source: SecurityEvent (EventID 4720)
+// Description: Monitors new user account creation
+//              to detect insider threat and persistence
+// ============================================
+
+SecurityEvent
+| where EventID == 4720
+| project TimeGenerated, Account, Computer, SubjectUserName
+| order by TimeGenerated desc
