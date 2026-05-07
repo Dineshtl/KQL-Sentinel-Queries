@@ -1,0 +1,13 @@
+// ============================================
+// Title: Incidents by Severity
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: Multiple Techniques
+// Log Source: SecurityIncident
+// Description: Dashboard view of incidents by severity
+//              for SOC prioritization and monitoring
+// ============================================
+
+SecurityIncident
+| summarize Count = count() by Severity
+| order by Count desc
