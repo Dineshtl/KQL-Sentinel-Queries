@@ -1,0 +1,13 @@
+// ============================================
+// Title: Security Alerts Overview
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: Multiple Techniques
+// Log Source: SecurityAlert
+// Description: Overview of all recent security alerts
+//              for general SOC monitoring and triage
+// ============================================
+
+SecurityAlert
+| order by TimeGenerated desc
+| take 100
