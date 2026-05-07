@@ -1,0 +1,13 @@
+// ============================================
+// Title: Failed Login Detection
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: T1110 - Brute Force / Credential Stuffing
+// Log Source: SecurityEvent (EventID 4625)
+// Description: Detects accounts with multiple failed logins
+// ============================================
+
+SecurityEvent
+| where EventID == 4625
+| summarize FailedAttempts = count() by Account, Computer
+| order by FailedAttempts desc
