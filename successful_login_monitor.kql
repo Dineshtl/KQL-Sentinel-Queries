@@ -1,0 +1,14 @@
+// ============================================
+// Title: Successful Login Monitor
+// Author: Thumma Lakshmikanth Gari Dinesh
+// Tool: Microsoft Sentinel
+// MITRE ATT&CK: T1078 - Valid Accounts
+// Log Source: SecurityEvent (EventID 4624)
+// Description: Tracks successful logins across environment
+//              for unauthorized access detection
+// ============================================
+
+SecurityEvent
+| where EventID == 4624
+| project TimeGenerated, Account, Computer, IpAddress, LogonType
+| order by TimeGenerated desc
