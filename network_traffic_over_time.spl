@@ -1,0 +1,12 @@
+| ============================================
+| Title: Network Traffic Over Time
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1040 - Network Sniffing
+| Log Source: fortigate_traffic
+| Description: Visualizes network traffic trends over time
+|              to detect anomalies and attack patterns
+| ============================================
+
+index=main sourcetype=fortigate_traffic
+| timechart span=1h count by action
