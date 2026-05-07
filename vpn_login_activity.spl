@@ -1,0 +1,13 @@
+| ============================================
+| Title: VPN Login Activity Monitor
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1133 - External Remote Services
+| Log Source: fortigate_traffic
+| Description: Monitors all VPN login activity to detect
+|              unauthorized access and suspicious users
+| ============================================
+
+index=main sourcetype=fortigate_traffic
+| stats count by user, action, src_ip
+| sort -count
