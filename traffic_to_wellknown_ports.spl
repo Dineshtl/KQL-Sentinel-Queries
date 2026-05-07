@@ -1,0 +1,14 @@
+| ============================================
+| Title: Traffic Towards Well Known Ports
+| Author: Thumma Lakshmikanth Gari Dinesh
+| Tool: Splunk Enterprise Security
+| MITRE ATT&CK: T1021 - Remote Services
+| Log Source: fortigate_traffic
+| Description: Monitors traffic to sensitive ports (22, 23,
+|              80, 443, 3389, 445, 21) for exploitation attempts
+| ============================================
+
+index=main sourcetype=fortigate_traffic
+| where dest_port IN (22, 23, 80, 443, 3389, 445, 21)
+| stats count by dest_port, src_ip
+| sort -count
